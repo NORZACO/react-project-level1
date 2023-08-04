@@ -53,3 +53,32 @@ p {
 }
 
 
+input {
+    width: 500px;
+    padding: 10px 12px 20px;
+    margin: 8px 100px;
+    box-sizing: border-box;
+}
+
+
+.buttonBox:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+form {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -437px;
+    right: -690px;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 30px;
+    margin: 100px 100px 100px 500px;
+}
