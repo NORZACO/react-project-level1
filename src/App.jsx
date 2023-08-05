@@ -6,6 +6,31 @@ import { USERS } from "./userGenerater";
 const [first_person] = USERS;
 console.log(first_person);
 
+const [ userId ] = first_person;
+console.log(userId);
+
+
+
+
+
+function useInput(initialValue) {
+  const [ value, setValue ] = useState(initialValue)
+  return [
+    { value, onChange: (event) => setValue(event.target.value) },
+  ]
+  
+}
+
+
+
+
+
+
+
+
+
+
+
 function App() {
   // eslint-disable-next-line no-unused-vars
   const [users, SetUser] = useState(USERS); // You can set the initial state to the USERS array directly
