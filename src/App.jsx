@@ -36,7 +36,7 @@ function App() {
 
   console.log(played, setPlayed);
 
-  // form
+  // form useref
   const txtTitle = useRef();
   const hexColor = useRef();
 
@@ -45,32 +45,28 @@ function App() {
 
   const submit = (event) => {
     event.preventDefault();
-    // console.log(event.target.color.value);
     const title = txtTitle.current.value;
     const color = hexColor.current.value;
     console.log(title, color);
     // alert tltle color
     alert(`${title} ${color}`);
-
+    // empt the variables
     hexColor.current.value = "";
     txtTitle.current.value = "";
   };
 
-  const [movei, setMovie] = useState("");
-  const [movieList, setMovieList] = useState("#00000");
-  // new form
+
+
+  const [getTitle, setTitles ] = useState("");
+  const [getColor, setColors] = useState("#00000");
+
   const submitForm = (event) => {
     event.preventDefault();
-    // console.log(event.target.color.value);
-    const title = txtTitle.current.value;
-    const color = hexColor.current.value;
-    console.log(title, color);
-    // alert tltle color
-    alert(`${title} ${color}`);
-    hexColor.current.value = "";
-    txtTitle.current.value = "";
+    alert(`${getTitle} and ${getColor}`)
+
   };
 
+  // RETURN ALL THE HTML + JS
   return (
     /* map first_person */
     <div className="MainDiv">
@@ -103,6 +99,7 @@ function App() {
               // flexDirection: "column",
             }}
           >
+            {/* USER INFO */}
             <p>Username: {user.username}</p>
             <p>Email: {user.email}</p>
             <p>Password: {user.password}</p>
@@ -134,7 +131,7 @@ function App() {
                   alert(`Hello ${user.avatar}`);
                 }}
               >
-                POPUP
+                ALERT
               </button>
 
               <button
@@ -143,28 +140,28 @@ function App() {
                   SetEmotion(`Hello ${user.username}`);
                 }}
               >
-                {" "}
-                Change name{" "}
+                Change name
               </button>
+
               <button
                 onClick={() => {
                   console.log("clicked2");
                   setSecondary(`Hello Awesome`);
                 }}
               >
-                {" "}
-                Feeling Awesome{" "}
+                Feeling Awesome
               </button>
+
               <button
                 onClick={() => {
                   console.log("clicked2");
                   changeColor(`changeColor`);
                 }}
               >
-                {" "}
-                changeColor{" "}
+                changeColor
               </button>
             </div>
+            {/* END DIV */}
           </div>
         ))}
         <input
@@ -175,28 +172,34 @@ function App() {
         <p>{checked ? "checked" : "not checked"}</p>
         <input type="checkbox" value={marked} onChange={setMarked} />
         <p>{marked ? "marked" : "not marked"}</p> <hr></hr>
-        <h1>Form</h1>
+
+
+        {/* FIRST FORM USER REF */}
         <form onSubmit={submit}>
           <input type="text" ref={txtTitle} placeholder="color title" />
-
-          <input ref={hexColor} type="color" />
+          <input type="color" ref={hexColor} />
           <button>ADD</button>
         </form>
-        {/* new form */}
+
+
+        {/* SECOND FORM */}
+        <hr></hr>
         <form onSubmit={submitForm}>
           <input
-            value={movei}
+            value={getTitle}
             type="text"
-            onChange={(event) => setMovie(event.target.value)}
+            onChange={(event) => setTitles(event.target.value)}
             placeholder="color title..."
           />
           <input
-            value={movieList}
+            value={getColor}
             type="color"
-            onChange={(event) => setMovieList(event.target.value)}
+            onChange={(event) => setColors(event.target.value)}
           />
           <button>ADD</button>
         </form>
+
+
       </div>
     </div>
   );
