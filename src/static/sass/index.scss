@@ -1,0 +1,22 @@
+$myColor: rgb(239, 176, 176);
+
+
+h1 {
+  color: $myColor;
+
+}
+th {
+    background-color: $myColor;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+th:hover {
+    background-color: $myColor;
+
+}

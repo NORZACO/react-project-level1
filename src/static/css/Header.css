@@ -1,0 +1,78 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: DodgerBlue;
+    padding: 15px;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: lightcoral;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing:.4em;
+}
+
+
+.logo {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    /* top: -5px;
+    left: -.75%;
+    transform: rotate(-9deg); */
+    /* z-index: 6; */
+    /* border-bottom: solid #fff 8px!important;
+    border-right: solid #fff 8px!important;
+    border-left: solid #fff 8px!important;
+    border-top: solid #fff 8px!important;
+    border-radius: 50%;
+    padding: 0 5px;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px #000;
+    transition: all .3s ease-in-out;
+    animation: pulse 2s infinite alternate cubic-bezier(0,.2,.8,1); */
+
+}
+
+.logo:hover {
+    transform: rotate(-9deg) scale(1.1);
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
+    animation: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: rotate(-9deg) scale(1);
+    }
+    100% {
+        transform: rotate(-9deg) scale(1.1);
+    }
+}
+
+/* Path: src\component\static\css\Home.css */
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}

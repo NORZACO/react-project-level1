@@ -1,35 +1,21 @@
 import "./App.css";
 import "./Greeting.css";
 import { useState, useReducer, useEffect, useRef } from "react";
-import { USERS } from "./userGenerater";
+import { USERS } from "./data/userGenerater";
 
 const [first_person] = USERS;
 console.log(first_person);
 
-const [ userId ] = first_person;
-console.log(userId);
+// const [ userId ] = first_person;
+// console.log(userId);
 
+// function useInput(initialValue) {
+//   const [ value, setValue ] = useState(initialValue)
+//   return [
+//     { value, onChange: (event) => setValue(event.target.value) },
+//   ]
 
-
-
-
-function useInput(initialValue) {
-  const [ value, setValue ] = useState(initialValue)
-  return [
-    { value, onChange: (event) => setValue(event.target.value) },
-  ]
-  
-}
-
-
-
-
-
-
-
-
-
-
+// }
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -80,15 +66,12 @@ function App() {
     txtTitle.current.value = "";
   };
 
-
-
-  const [getTitle, setTitles ] = useState("");
+  const [getTitle, setTitles] = useState("");
   const [getColor, setColors] = useState("#00000");
 
   const submitForm = (event) => {
     event.preventDefault();
-    alert(`${getTitle} and ${getColor}`)
-
+    alert(`${getTitle} and ${getColor}`);
   };
 
   // RETURN ALL THE HTML + JS
@@ -197,16 +180,12 @@ function App() {
         <p>{checked ? "checked" : "not checked"}</p>
         <input type="checkbox" value={marked} onChange={setMarked} />
         <p>{marked ? "marked" : "not marked"}</p> <hr></hr>
-
-
         {/* FIRST FORM USER REF */}
         <form onSubmit={submit}>
           <input type="text" ref={txtTitle} placeholder="color title" />
           <input type="color" ref={hexColor} />
           <button>ADD</button>
         </form>
-
-
         {/* SECOND FORM */}
         <hr></hr>
         <form onSubmit={submitForm}>
@@ -223,8 +202,6 @@ function App() {
           />
           <button>ADD</button>
         </form>
-
-
       </div>
     </div>
   );
