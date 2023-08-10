@@ -21,18 +21,28 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-console.log(process.env.NODE_ENV);
-if (process.env.NODE_ENV === 'development') {
-  app.use(cors({ origin: 'http://localhost:3000' }));
-} else {
-  app.use(cors({ origin: 'https://user-generator-frontend.herokuapp.com' }));
-}
-// app.use(cors({ origin: 'http://localhost:3000' }));
+// app.use(cors());
+
+app.use(cors({ 
+  origin: 'http://127.0.0.1:3000',
+  credentials: true,
+  // methods: ['GET', 'POST', 'PUT', 'DELETE']
+}));
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "OPTIONS, GET, POST, PUT, PATCH, DELETE" // what matters here is that OPTIONS is present
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization", "Access-Control-Allow-Origin");
+  next();
+});
 
 
-app.use('/api', indexRouter);
-app.use('/api', usersRouter);
-app.use('/api', climatesRouter);
+app.use('/api/v1', indexRouter);
+app.use('/api/v1', usersRouter);
+app.use('/api/v1', climatesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

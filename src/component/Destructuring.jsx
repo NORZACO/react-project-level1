@@ -106,10 +106,10 @@ function Destructuring({ library, message }) {
         <p> {message} </p>
       </div>
 
-      <div className="destructurings">
+      <div className="destructurings container">
         {/* table */}
         <table
-          className={`table table-bordered  ${geactivev2}`}
+          className={`table table-bordered object-fit-contain border rounded ${geactivev2}`}
           onClick={() => setActivev2(getRandomColor())}
         >
           <thead>
