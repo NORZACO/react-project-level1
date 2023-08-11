@@ -9,6 +9,9 @@ const cors = require('cors');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const climatesRouter = require('./routes/climates');
+const productsRouter = require('./routes/products');
+
+
 const app = express();
 
 // view engine setup
@@ -21,28 +24,29 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(cors());
+app.use(
+  cors(
+    {
+      origin: 'http://localhost:3000',
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    }
+  ));
 
-app.use(cors({ 
-  origin: 'http://127.0.0.1:3000',
-  credentials: true,
-  // methods: ['GET', 'POST', 'PUT', 'DELETE']
-}));
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "OPTIONS, GET, POST, PUT, PATCH, DELETE" // what matters here is that OPTIONS is present
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization", "Access-Control-Allow-Origin");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader(
+//     "Access-Control-Allow-Methods",
+//     "OPTIONS, GET, POST, PUT, PATCH, DELETE" // what matters here is that OPTIONS is present
+//   );
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization", "Access-Control-Allow-Origin");
+//   next();
+// });
 
 
 app.use('/api/v1', indexRouter);
 app.use('/api/v1', usersRouter);
 app.use('/api/v1', climatesRouter);
+app.use('/api/v1', productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

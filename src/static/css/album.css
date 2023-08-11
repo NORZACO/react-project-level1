@@ -1,0 +1,41 @@
+.albumShadow {
+    box-shadow:
+        0px 0px 23.4px -27px rgba(0, 0, 0, 0.018),
+        0px 0px 39.5px -27px rgba(0, 0, 0, 0.033),
+        0px 0px 55.2px -27px rgba(0, 0, 0, 0.046),
+        0px 0px 71.2px -27px rgba(0, 0, 0, 0.057),
+        0px 0px 88.2px -27px rgba(0, 0, 0, 0.066),
+        0px 0px 106.5px -27px rgba(0, 0, 0, 0.073),
+        0px 0px 126.9px -27px rgba(0, 0, 0, 0.081),
+        0px 0px 151px -27px rgba(0, 0, 0, 0.11);
+}
+
+
+.LoaderBoot { border-style: outset;
+
+}
+
+
+/* 
+margin: 100px 0 0 0 ;
+border-color: black;
+background:#f1c40f!important;
+width : fit-content !important;
+height : fit-content !important;
+padding :  1rem .5rem    !important;
+border-radius: 50% !important;
+animation:.8s ease infinite alternate LoaderBoot;
+}
+
+@keyframes LoaderBoot {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+} */
+
+
+
+
