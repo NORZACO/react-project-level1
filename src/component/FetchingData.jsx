@@ -149,7 +149,7 @@ class ErrorBoundary extends React.Component {
 function GithubUser({ status, username, dataResults }) {
   return (
     <div className="LoaderBoots">
-       {/*
+      {/*
       <h1> status : {status} </h1>
       <h1>username: {username} </h1>
       <h1>allDta: { JSON.stringify(dataResults, null, 2) } </h1> 
@@ -202,7 +202,7 @@ function GithubUser({ status, username, dataResults }) {
   );
 }
 
-function LoadingCompenent({}) {
+function LoadingCompenent() {
   return (
     <>
       <div
@@ -223,13 +223,37 @@ function LoadingCompenent({}) {
 
 // let RawFetchingData
 function FetchingData() {
-  const [getdata, setData] = useState([]);
+  const [getdata, setData] = useState([]); // get data
+  const [error, setError] = useState(null);  // error
+  const [isLoading, setLoadeding] = useState(false); // loading
 
   useEffect(() => {
+    setLoadeding(true); // Fixed the typo here as well
     fetch(URL)
       .then((response) => response.json())
-      .then(setData);
+      .then(setData) // set data
+      .then(() =>  setLoadeding(false)) // Usually, you would set loading to false after receiving data
+      .then(() => console.log("data fetched"))
+      .catch(setError);
   }, []);
+
+
+
+
+  // check if it is loading
+  if (isLoading) {
+    return <LoadingCompenent />;
+  }
+
+  // check if they is error
+  if (error) {
+    return <div>Error: {JSON.stringify(error.message) }</div>;
+  }
+
+
+
+
+
 
   console.log(getdata.status);
   console.log(getdata?.data?.result);
