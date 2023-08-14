@@ -90,7 +90,7 @@ function HeroSections() {
     <section className="py-5 text-center container">
       <div className="row py-lg-5">
         <div className="col-lg-6 col-md-8 mx-auto">
-          <h1 className="fw-light">Album example</h1>
+          <h1 className="fw-light">Album </h1>
           <p className="lead text-body-secondary">
             Among all other JavaScript libraries, React.js stands out. It relies
             on reusable components, not templates, for UI development, allowing
@@ -100,9 +100,9 @@ function HeroSections() {
             <a href="#6" className="btn btn-primary my-2">
               Main call to action
             </a>
-            <a href="#6" className="btn btn-secondary my-2">
+            {/* <a href="#6" className="btn btn-secondary my-2">
               Secondary action
-            </a>
+            </a> */}
           </p>
         </div>
       </div>

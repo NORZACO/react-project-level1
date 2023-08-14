@@ -1,0 +1,27 @@
+-- SQLBook: Code
+-- Active: 1687414647513@@127.0.0.1@3306@stocksalesdb
+
+SELECT *
+FROM users;
+
+-- delete
+
+DELETE
+FROM users
+WHERE id > 1;
+
+-- delete TABLE
+
+DROP TABLE 
+-- allcarts, --    allorders,
+ cartitems;
+--  carts,
+--  categories,
+--  items,
+--  orderitems, --    orders,
+--  roles,
+--  users;
+
+-- show all TABLE in stocData
+ SHOW TABLES;
+-- SQLBook: Code

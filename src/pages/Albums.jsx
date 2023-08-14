@@ -146,7 +146,6 @@ class ErrorBoundary extends React.Component {
 //   );
 // }
 
-
 function GithubUser({ status, username, dataResults }) {
   return (
     <div className="LoaderBoots">
@@ -174,6 +173,7 @@ function GithubUser({ status, username, dataResults }) {
                       <li>{person.aboutMe}</li>
                       <li>{person.email}</li>
                       <li>{person.birthdate} </li>
+
                     </ul>
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="btn-group">
@@ -190,7 +190,7 @@ function GithubUser({ status, username, dataResults }) {
                           Edit
                         </a>
                       </div>
-                      <small className="text-muted">9 mins</small>
+                      <small className="text-muted"> followers: { person.followersCount } </small>
                     </div>
                   </div>
                 </div>
@@ -225,7 +225,7 @@ function LoadingCompenent() {
 // let RawFetchingData
 function FetchingData() {
   const [getdata, setData] = useState([]); // get data
-  const [error, setError] = useState(null);  // error
+  const [error, setError] = useState(null); // error
   const [isLoading, setLoadeding] = useState(false); // loading
 
   useEffect(() => {
@@ -233,13 +233,10 @@ function FetchingData() {
     fetch(URL)
       .then((response) => response.json())
       .then(setData) // set data
-      .then(() =>  setLoadeding(false)) // Usually, you would set loading to false after receiving data
+      .then(() => setLoadeding(false)) // Usually, you would set loading to false after receiving data
       .then(() => console.log("data fetched"))
       .catch(setError);
   }, []);
-
-
-
 
   // check if it is loading
   if (isLoading) {
@@ -248,9 +245,8 @@ function FetchingData() {
 
   // check if they is error
   if (error) {
-    return <div>Error: {JSON.stringify(error.message) }</div>;
+    return <div>Error: {JSON.stringify(error.message)}</div>;
   }
-
 
   console.log(getdata.status);
   console.log(getdata?.data?.result);
